@@ -19,7 +19,7 @@ linkSiguientePagina =
   }
 
 
-#doc <- getURL("https://www.computrabajo.com.co/empleos-de-informatica-y-telecom")
+doc <- getURL("https://www.computrabajo.com.co/empleos-de-informatica-y-telecom")
 avisos <- htmlParse(doc, asText = TRUE)
 lst_titulo = c()
 lst_url = c()
