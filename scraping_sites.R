@@ -1,4 +1,5 @@
-require(XML)
+library(XML)
+library(Rcurl)
 
 linkSiguientePagina =
   function(doc)
@@ -40,7 +41,7 @@ while(TRUE)
     url = xmlGetAttr(getNodeSet(tbls[[naviso]], "//a[@itemprop='url']")[[naviso]],"href")
     empresa = xmlValue(getNodeSet(tbls[[naviso]], "//span[@itemprop='name']")[[naviso]])
     descripcion = xmlValue(getNodeSet(tbls[[naviso]], "//p[@itemprop='description']")[[naviso]])
-    fecha = xmlValue(getNodeSet(tbls[[naviso]], "//span[@itemprop='datePosted']")[[naviso]])
+    fecha = xmlGetAttr(getNodeSet(tbls[[naviso]], "//meta[@itemprop='datePosted']")[[naviso]],"content")
     lst_titulo <- c(lst_titulo,titulo)
     lst_url <- c(lst_url,url)
     lst_empresa <- c(lst_empresa,empresa)
